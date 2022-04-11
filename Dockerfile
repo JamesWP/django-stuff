@@ -9,10 +9,10 @@ run python3 -m pip install gunicorn
 # Copy in application
 copy . /buildarea
 
+workdir /buildarea
+
 # Django itself
 run python3 -m pip install -r requirements.txt
-
-workdir /buildarea
 
 run python3 manage.py collectstatic
 
