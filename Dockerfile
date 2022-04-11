@@ -3,14 +3,14 @@ from alpine:3.15.4
 run apk add python3
 run python3 -m ensurepip
 
-# Django itself
-run python3 -m pip install Django tzdata
-
 # Gunicorn to serve things
 run python3 -m pip install gunicorn
 
 # Copy in application
 copy . /buildarea
+
+# Django itself
+run python3 -m pip install -r requirements.txt
 
 workdir /buildarea
 
